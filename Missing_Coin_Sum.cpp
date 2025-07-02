@@ -1,35 +1,45 @@
 #include<bits/stdc++.h>
 #define endl "\n"
-#define print(val) cout << val << endl;
 #define for1(i,n) for(int i = 0; i < n ; i++)
 #define lli long long int
 #define all(x) (x).begin(), (x).end()
 #define py print("YES")
 #define pn print("NO")
-#define printcontainer(i,container) for1(i,container.size()) print(container[i])
+#define m1 print("-1")
+#define print(val) cout << val << endl;
+#define print_all(a) for(lli i=0;i<(lli)a.size();i++) cout<<a[i]<<" ";cout<<endl;
 #define vll vector<lli>
 using namespace std;
-int main(){
-    ios::sync_with_stdio(false);cin.tie(0);
-    cin.tie(0);
-    cout.tie(0);
-    
+//#include<ext/pb_ds/tree_policy.hpp>
+//#include<ext/pb_ds/assoc_container.hpp>
+//template<class T> using oset=tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;
+//using namespace __gnu_pbds;
+void solve() {
     lli n;
-    cin >> n;
+    cin>>n;
     vll a(n);
-    for(lli &i : a) cin >> i;
+    for1(i,n) cin>>a[i];
     sort(all(a));
-    vll pr;
-    lli cs = 0;
-    sort(all(a));
-    lli cnt = 1;
-    map<lli,lli> map;
-    lli pr = 0;
-    map[0] = 1;
-    for(lli &i : a) {
-        pr += i;
-        lli need = pr - cnt;
-        if(map[])
+    lli sum=1;
+    for1(i,n) {
+        if(sum<a[i]) {
+            cout<<sum<<endl;
+            return;
+        }
+        sum+=a[i];
+    }
+    cout<<sum<<endl;
+    return;
+}
+int main(){
+    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //cout << fixed << setprecision(7);
+    lli t;
+    t=1;
+    //cin >> t;
+    while(t--){
+        //cout << " tt " << t << endl;
+        solve();
     }
     return 0;
 }

@@ -10,22 +10,21 @@
 #define vll vector<lli>
 using namespace std;
 void solve() {
-    lli n;
-    cin>>n;
-    lli cur=0;
-    map<lli,lli> map;
-    for1(i,n){
-        lli u,v;
-        cin>>u>>v;
-        map[u]++;
-        map[v]--;
+    lli n,m,k;
+    cin>>n>>m>>k;
+    lli ans=0;
+    vll a(n),b(m);
+    for(auto &x:a)cin>>x;
+    for(auto &x:b)cin>>x;
+    sort(all(a));
+    sort(all(b));
+    lli ptr1=n-1,ptr2=m-1;
+    while(ptr1>=0&&ptr2>=0){
+        ans+=(a[ptr1]-k<=b[ptr2]&&b[ptr2]<=a[ptr1]+k);
+        ptr2-=((a[ptr1]-k<=b[ptr2]&&b[ptr2]<=a[ptr1]+k)||());
+        ptr1--;
     }
-    lli mx=0LL;
-    for(auto x:map){
-        cur+=x.second;
-        mx=max(mx , cur);
-    }
-    cout<<mx;
+    cout<<ans;
 }
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
